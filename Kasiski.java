@@ -1,18 +1,11 @@
 import java.util.ArrayList;
+import java.text.DecimalFormat;
 
-public class Vigenere_Kasiski {
+public class Kasiski {
   
   static String cipher = "";    // String des verschlüsselten Texts
   static String plain = "";   // String des entschlüsselten Texts
   
-  // COMMENT
-  public static String readTextFromFile(String dateiname) {
-    String text = "";
-    
-    // TODO
-    
-    return text;
-  }
   
   // Bestimmen des größten gemeinsamen Teilers aus a u. b
   public static int getGGT(int a, int b){
@@ -95,21 +88,71 @@ public class Vigenere_Kasiski {
     // TODO
         
     // TODO: Schlüsselbuchstaben zum Schlüsselwort zusammensetzen
-    for(int i=0; i<DEUTSCH.length; i++)
-      {
+
+
+    for(int i=0; i<DEUTSCH.length; i++) {
         System.out.print(DEUTSCH[i] + " | ");
-      }
+    }
+
+    System.out.print("\n");
+
+    for(char c = 'A'; c <= 'Z'; c++) {
+        System.out.print(c + "  |   ");
+    }
     System.out.println("\n" + "Schlüsselwort: "+keyword);
+
     return keyword;
   }
+
+
+ //ERKLAREN!!!
+
+  public static double round(double value, int places) {
+    if (places < 0) throw new IllegalArgumentException();
+
+    long factor = (long) Math.pow(10, places);
+    value = value * factor;
+    long tmp = Math.round(value);
+    return (double) tmp / factor;
+}
+ 
+    public static String divideString(String cipher, int keywordlength) {
+        int p = 0;
+        String divide = "";
+
+        for(int i = 0; i<cipher.length()/keywordlength+1; i++){
+            String s = cipher.substring(p, p + keywordlength); 
+            divide+=s+=" ";
+
+            p++;
+        }
+        
+        return divide;
+    }
+
+    public static double[] 
+
   
   public static void main(String[] args) {
     cipher = "PWTMYTBADKDGPWPFYWFGUESOTLUPNVYWAPKCSOOJWWASTLSUZUSJMJBBRSTIMGPYSXOJWWASMMZQLCHJQWGYDHKOJWWASTMFPADWIPVKLHONZWPDPWRAAGQPRKNJCNPKGPJJLTHYOWOHPGYJWCUEKUZLGAOWKHOGPESMZMRWPBKVFVZTQNLAGSFSMVWTDPWRAAGQPRKNJCNPTGTKEOMSGVLYVCHKBVKLOFOBLGNCIVXWPLYBZAAEOOWKEWEODZKZOGPWGOMSWMPWTIFFLCTUTYGUOSLZSILYOHEWEODSRVVYHSFAVVHHWGIPTGHYHCWJVLERGJWKPDHGJWTUTQNBXGZEUKTWIAZPPMOGPWGJQWGYDHKNJCNPSOVWTZPFOMNQUQFGOWPYTQNBAIVOSXNSNZNVHMSPAHCXBWVDTFJRWFLASXAGPHYHCWJVLEOANWKUPTXIYGUFFSQLLHZRKZFGPYTXIYGUOWKVAEOEAOBBCVOSXVWKUMSGVLYVCHKBOGYOSTSGGUYSTAAPKYWIPLBBRSRIKULYJUVWKUPFHMDKLMWMMFRLCGUVKQSWAGVVWYNVLZSILYROMKKJSBAZSWMOWKHMILSCKZAIRPWZHMGPYSXLWTNCIVXWPIPNOMZGUSSXIMUIPYUUEGUKICMDEOPFMZMRWPGOMYGOZSXBOKLGWKTWHYLUKVEWZDAGVEKUOSYBWPZDHKTDGUFBJEWNJSSLZSILYYUMFPAPAGVKVLWZKV";
+    // PWTMYTB ADKDGPW ...
+    /*
     System.out.println("Geheimtext: "+cipher+"\n");
-    int keywordlength = calcKeywordLength(cipher,4,10);   // 1. Schlüsselwortlänge bestimmen
+    int keywordlength = calcKeywordLength(cipher,4,10);   // 1. Schlüsselwortlänge bestimmen --,min,max schlüssellänge
     String keyword = calcKeyword(cipher, keywordlength);  // 2. Schlüsselwort bestimmen
     System.out.println("Klartext: "+plain+"\n");
-    System.out.println(keyword);
-  }
 
+    double[] freq = calcFreqRel(cipher);
+    System.out.print("\n" + "Haufigkeiten: | ");
+    for(int i=0; i<freq.length; i++){
+        System.out.print(round(freq[i], 2) + " | ");
+    }
+    System.out.print("\n" + "              |   ");
+    for(char c = 'A'; c <= 'Z'; c++){
+      System.out.print(c + "  |   ");
+    }
+    */
+
+    System.out.println(divideString(cipher, 7));
+  }
 }
