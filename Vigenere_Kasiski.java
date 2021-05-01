@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Vigenere2 {
+public class Vigenere_Kasiski {
   
   static String cipher = "";    // String des verschlüsselten Texts
   static String plain = "";   // String des entschlüsselten Texts
@@ -87,25 +87,29 @@ public class Vigenere2 {
     }
 
     // COMMENT
-    final double[] DEUTSCH = {6.51, 1.89, 3.06, 5.08, 17.41, 1.66, 3.01, 4.76, 7.55, 0.27, 1.21, 3.44, 2.53, 9.78, 2.51, 0.79, 0.02, 7.00, 7.89, 6.15, 4.35, 0.67, 1.89, 0.03, 0.04, 1    .13};
+    final double[] DEUTSCH = {6.51, 1.89, 3.06, 5.08, 17.41, 1.66, 3.01, 4.76, 7.55, 0.27, 1.21, 3.44, 2.53, 9.78, 2.51, 0.79, 0.02, 7.00, 7.89, 6.15, 4.35, 0.67, 1.89, 0.03, 0.04, 1.13};
+                            //  a     b     c     d     e     f     g     h     i     j     k     l     m     n     o     p     q     r     s     t     u     v     w     x     y     z
     
     // TODO: Für jeden Teilstring eine Häufigkeitsanalyse durchführen und daraus jeweils die Caesar-Verschiebung (=Schlüsselbuchstabe) bestimmen
 
     // TODO
         
     // TODO: Schlüsselbuchstaben zum Schlüsselwort zusammensetzen
-    System.out.print(DEUTSCH);
-    System.out.println("Schlüsselwort: "+keyword);
+    for(int i=0; i<DEUTSCH.length; i++)
+      {
+        System.out.print(DEUTSCH[i] + " | ");
+      }
+    System.out.println("\n" + "Schlüsselwort: "+keyword);
     return keyword;
   }
   
   public static void main(String[] args) {
     cipher = "PWTMYTBADKDGPWPFYWFGUESOTLUPNVYWAPKCSOOJWWASTLSUZUSJMJBBRSTIMGPYSXOJWWASMMZQLCHJQWGYDHKOJWWASTMFPADWIPVKLHONZWPDPWRAAGQPRKNJCNPKGPJJLTHYOWOHPGYJWCUEKUZLGAOWKHOGPESMZMRWPBKVFVZTQNLAGSFSMVWTDPWRAAGQPRKNJCNPTGTKEOMSGVLYVCHKBVKLOFOBLGNCIVXWPLYBZAAEOOWKEWEODZKZOGPWGOMSWMPWTIFFLCTUTYGUOSLZSILYOHEWEODSRVVYHSFAVVHHWGIPTGHYHCWJVLERGJWKPDHGJWTUTQNBXGZEUKTWIAZPPMOGPWGJQWGYDHKNJCNPSOVWTZPFOMNQUQFGOWPYTQNBAIVOSXNSNZNVHMSPAHCXBWVDTFJRWFLASXAGPHYHCWJVLEOANWKUPTXIYGUFFSQLLHZRKZFGPYTXIYGUOWKVAEOEAOBBCVOSXVWKUMSGVLYVCHKBOGYOSTSGGUYSTAAPKYWIPLBBRSRIKULYJUVWKUPFHMDKLMWMMFRLCGUVKQSWAGVVWYNVLZSILYROMKKJSBAZSWMOWKHMILSCKZAIRPWZHMGPYSXLWTNCIVXWPIPNOMZGUSSXIMUIPYUUEGUKICMDEOPFMZMRWPGOMYGOZSXBOKLGWKTWHYLUKVEWZDAGVEKUOSYBWPZDHKTDGUFBJEWNJSSLZSILYYUMFPAPAGVKVLWZKV";
-    System.out.print("Geheimtext: "+cipher+"\n");
+    System.out.println("Geheimtext: "+cipher+"\n");
     int keywordlength = calcKeywordLength(cipher,4,10);   // 1. Schlüsselwortlänge bestimmen
     String keyword = calcKeyword(cipher, keywordlength);  // 2. Schlüsselwort bestimmen
-    System.out.print("Klartext: "+plain+"\n");
-    System.out.print(keyword);
+    System.out.println("Klartext: "+plain+"\n");
+    System.out.println(keyword);
   }
 
 }
