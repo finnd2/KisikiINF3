@@ -130,7 +130,10 @@ public class Kasiski {
         return divide;
     }
 
-    public static double[] 
+    public static double[] huhuuuu(){
+
+        return null;
+    }
 
   
   public static void main(String[] args) {
